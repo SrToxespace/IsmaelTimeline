@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <title>Línea de Tiempo Estilizada</title>
+  <style>
+    body {
+   font-family: 'Poppins', sans-serif;
+
+      margin: 0;
+      padding: 0;
+      background-image: url('losttime.png');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: #ccc;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+
+    .container {
+      padding: 20px 40px;
+      position: relative;
+      width: 50%;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .content {
+      background: rgba(153, 129, 129, 0.3);
+    
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 10px;
+      position: relative;
+      padding: 20px;
+      transition: transform 0.3s ease;
+      color: #fff;
+    }
+
+
+    .left::before {
+      left: -10px;
+    }
+
+    .right::before {
+      right: -10px;
+    }
+
+    .image {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .year {
+      font-weight: bold;
+      color: #ffffff;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .extra-info {
+      display: none;
+      margin-top: 10px;
+      color: #eee;
+    }
+
+    .show {
+      display: block;
+    }
+
+    .boton-elegante {
+      padding: 10px 20px;
+      font-family: 'Poppins', sans-serif;
+      border: 2px solid #2c2c2c;
+      background-color: #1a1a1a;
+      color: #ffffff;
+      font-size: 0.8rem;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all 0.4s ease;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .boton-elegante::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 70%
+      );
+      transform: scale(0);
+      transition: transform 0.5s ease;
+    }
+
+    .boton-elegante:hover::after {
+      transform: scale(4);
+    }
+
+    .boton-elegante:hover {
+      border-color: #666666;
+      background: #292929;
+    }
+
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 10px;
+      }
+
+      .container {
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 25px;
+      }
+
+      .right {
+        left: 0%;
+      }
+
+      .container::before {
+        left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="timeline">
+<div class="container left">
+  <div class="content">
+    <div class="year">1940s</div>
+  <img src="codigo-binario.png" alt="Descripción de la imagen" style="width: 150px; height: auto;">
+    <p>Lenguaje máquina y la era temprana.</p>
+    <div class="extra-info">
+      El lenguaje máquina es el primer nivel de programación, constituido por instrucciones en código binario directamente entendidas por el hardware. En las primeras computadoras, como la ENIAC, los programadores debían manipular interruptores y cables o escribir directamente código binario, lo que resultaba extremadamente tedioso y propenso a errores. Este método limitaba la complejidad y rapidez del desarrollo de software.
+    </div>
+    <button class="boton-elegante" onclick="toggleInfo(this)">Ver más</button>
+  </div>
+</div>
+
+<div class="container right">
+  <div class="content">
+    <div class="year">Principios de 1950</div>
+ <img src="codigo-binario (1).png" alt="Descripción de la imagen" style="width: 150px; height: auto;">
+    <p>Invención del ensamblador simbólico.</p>
+    <div class="extra-info">
+      Para aliviar la complejidad de programar en lenguaje máquina, se inventó el lenguaje ensamblador simbólico. Este permitía utilizar mnemónicos o abreviaturas legibles para humanos, que un programa llamado "ensamblador" traduce automáticamente a código máquina. El ensamblador facilitó la escritura y el mantenimiento del código, permitiendo gestionar direcciones y etiquetas en lugar de números binarios absolutos.
+    </div>
+    <button class="boton-elegante" onclick="toggleInfo(this)">Ver más</button>
+  </div>
+</div>
+
+<div class="container left">
+  <div class="content">
+    <div class="year">1950-1960</div>
+     <img src="codigo.png" alt="Descripción de la imagen" style="width: 150px; height: auto;">
+    <p>Desarrollo de ensambladores para primeras computadoras.</p>
+    <div class="extra-info">
+      Durante esta época, cada arquitectura de computadora tenía su propio lenguaje ensamblador específico, adaptado a su conjunto de instrucciones particular. Por ejemplo, el IBM 701 y el UNIVAC I tenían ensambladores únicos. Surgieron optimizaciones para mejorar el ensamblaje, incluyendo macros y directivas que aumentaban la productividad del programador.
+    </div>
+    <button class="boton-elegante" onclick="toggleInfo(this)">Ver más</button>
+  </div>
+</div>
+
+<div class="container right">
+  <div class="content">
+    <div class="year">Década de 1960</div>
+     <img src="cadena-de-bloques.png" alt="Descripción de la imagen" style="width: 150px; height: auto;">
+    <p>Aparición de macroensambladores.</p>
+    <div class="extra-info">
+      Los macroensambladores incorporaron la capacidad de definir macros, que son bloques de código reutilizables, facilitando la escritura de programas más grandes y complejos. Esto permitió que el lenguaje ensamblador empezara a incorporar características propias de lenguajes de alto nivel, mejorando la eficiencia del desarrollo sin perder el control del hardware.
+    </div>
+    <button class="boton-elegante" onclick="toggleInfo(this)">Ver más</button>
+  </div>
+</div>
+
+<div class="container left">
+  <div class="content">
+    <div class="year">1978</div>
+ <img src="pngwing.com.png" alt="Descripción de la imagen" style="width: 150px; height: auto;">
+    <p>Estándar del lenguaje ensamblador para arquitectura x86.</p>
+    <div class="extra-info">
+      Con el lanzamiento del procesador Intel 8086 en 1978, el lenguaje ensamblador x86 se convirtió en un estándar para microprocesadores y PCs. Su conjunto de instrucciones complejas (CISC) requería un ensamblador sofisticado. Esta arquitectura y su lenguaje ensamblador han evolucionado hasta hoy, manteniendo compatibilidad hacia atrás.
+    </div>
+    <button class="boton-elegante" onclick="toggleInfo(this)">Ver más</button>
+  </div>
+</div>
+
+<div class="container right">
+  <div class="content">
+    <div class="year">1980s</div>
+    <img src="pngegg.png" alt="Descripción de la imagen" style="width: 150px; height: auto;">
+    <p>Evolución hacia arquitecturas RISC y su ensamblador.</p>
+    <div class="extra-info">
+      La arquitectura RISC (Reduced Instruction Set Computer) introdujo un conjunto reducido y optimizado de instrucciones. Esto simplificó el lenguaje ensamblador y permitió mayor velocidad en ejecución. Arquitecturas RISC como MIPS, SPARC y ARM popularizaron un enfoque más eficiente en programación de bajo nivel.
+    </div>
+    <button class="boton-elegante" onclick="toggleInfo(this)">Ver más</button>
+  </div>
+</div>
+
+<div class="container left">
+  <div class="content">
+    <div class="year">1985 - Actualidad</div>
+     <img src="ARMlogo-removebg-preview.png" alt="Descripción de la imagen" style="width: 150px; height: auto;">
+    <p>Expansión y evolución del ensamblador ARM.</p>
+    <div class="extra-info">
+      ARM, basada en RISC, desarrolló su propio lenguaje ensamblador, que ha dominado dispositivos móviles y embebidos debido a su eficiencia energética y simplicidad relativa. El lenguaje ensamblador ARM continúa evolucionando con versiones nuevas del conjunto de instrucciones, incorporando extensiones para multimedia, seguridad y virtualización.
+    </div>
+    <button class="boton-elegante" onclick="toggleInfo(this)">Ver más</button>
+  </div>
+</div>
+
+<div class="container right">
+  <div class="content">
+    <div class="year">2000s</div>
+   <img src="x64_4022.png" alt="Descripción de la imagen" style="width: 150px; height: auto;">
+    <p>Incorporación de ensambladores para arquitecturas de 64 bits.</p>
+    <div class="extra-info">
+      Con la introducción de procesadores x86-64 (AMD64), el lenguaje ensamblador x86 se amplió para soportar registros más grandes y nuevas instrucciones, manteniendo compatibilidad con código de 32 bits. Esto fue clave para aplicaciones modernas que requieren grandes cantidades de memoria y procesamiento.
+    </div>
+    <button class="boton-elegante" onclick="toggleInfo(this)">Ver más</button>
+  </div>
+</div>
+
+<div class="container left">
+  <div class="content">
+    <div class="year">2020s</div>
+     <img src="netwide-assembler-nasm-seeklogo.png" alt="Descripción de la imagen" style="width: 150px; height: auto;">
+    <p>Rol actual y futuro del lenguaje ensamblador.</p>
+    <div class="extra-info">
+      Aunque hoy en día la mayoría del software se desarrolla en lenguajes de alto nivel, el lenguaje ensamblador sigue siendo crucial para programación de sistemas operativos, controladores, firmware y optimización de código crítico. Las nuevas arquitecturas y la computación cuántica plantean desafíos y oportunidades para la evolución del lenguaje ensamblador en el futuro cercano.
+    </div>
+    <button class="boton-elegante" onclick="toggleInfo(this)">Ver más</button>
+  </div>
+</div>
+
+
+<script>
+  function toggleInfo(button) {
+    const extra = button.previousElementSibling;
+    const isShown = extra.classList.toggle('show');
+    button.textContent = isShown ? 'Ver menos' : 'Ver más';
+  }
+</script>
+
+</body>
+</html>
